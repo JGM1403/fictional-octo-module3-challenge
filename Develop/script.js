@@ -6,12 +6,13 @@ var characters = {
   special : ["!", "@" , "#" ,"$" ,"%" , "^", "&", "*", "(", ")", "-", "=", "+", "{", "}",]
 }
 
-
+// moving important variables to be global varibles by pushing them
 var usersCharacters = [];
 var finalLength = 0;
 
-
+// this function is going to provide all the prompts so that we know what characters are going to be in the password
 var writePassword = function() { 
+  //password length
   var passwordLength = prompt("How many character do you want in your password?");
   if (passwordLength < 8){
   alert("Length of password must be greater than 8 characters")
@@ -26,6 +27,7 @@ var writePassword = function() {
     finalLength = passwordLength;
   } 
 
+  // wheather the password will include lower case letters
   var includeLowercase = confirm("Do you want lowercase letters in your password?");
   if (includeLowercase) {
     console.log("include lowercase letters");
@@ -35,6 +37,7 @@ var writePassword = function() {
     console.log("exclude lowercase letters");
   };
 
+  // wheather the password will include uppercase letters
   var includeUppercase = confirm("Do you want uppercase letters in your password?");
   if (includeUppercase) {
     console.log("include uppercase letters");
@@ -44,6 +47,7 @@ var writePassword = function() {
     console.log("exclude uppercase letters");
   };
 
+  // wheather the password will include numbers
   var includeNumbers = confirm("Do you want numbers in your password?");
   if (includeNumbers) {
     console.log("include numbers");
@@ -53,6 +57,7 @@ var writePassword = function() {
     console.log("exclude numbers");
   };
 
+  // wheather the password will include special
   var includeSpecial = confirm("Do you want special characters in your password?")
   if (includeSpecial) {
     console.log("include special characters");
@@ -63,12 +68,15 @@ var writePassword = function() {
   }
   console.log("final length of password: " + finalLength + " characters long");
   console.log("will use: " + usersCharacters + " for password");
-  // return usersCharacters;
+  
+  // calling password generation function
   finalPassword();
   }
 
+  // new array for password charaters
 var passwordArray = [];
 
+// randomly choosing the characters and looping them to the users desired length
   function generatePassword() {
     console.log("in generate password");
     var passwordArray = [];
